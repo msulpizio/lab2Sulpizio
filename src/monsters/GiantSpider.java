@@ -1,15 +1,17 @@
 package monsters;
 
-import java.util.Date;
+/**
 
-/** Project: Lab 2 Monsters
- * Purpose Details: Concrete sealed child class representing a Giant Spider.
- * Course:
- * Author:
- * Date Developed:
- * Last Date Changed:
+ * Project: Lab 2
+ * Purpose Details: Monsters
+ * Course: IST 242
+ * Author: Matthew Sulpizio
+ * Date Developed: 1/27/26
+ * Last Date Changed: 2/8/26
  * Rev:
+
  */
+
 public final class GiantSpider extends Monster {
 
     /** Number of webs currently available to shoot. */
@@ -18,15 +20,13 @@ public final class GiantSpider extends Monster {
     /**
      * Constructs a GiantSpider.
      *
-     * @param id Unique monster id
      * @param name Monster name
      * @param level Monster level
      * @param health Monster health
-     * @param createdDate Date created
      * @param webCount webs available
      */
-    public GiantSpider(String id, String name, int level, int health, Date createdDate, int webCount) {
-        super(id, name, level, health, createdDate);
+    public GiantSpider(String name, int level, int health, int webCount) {
+        super(name, level, health);
         this.webCount = webCount;
     }
 
@@ -51,7 +51,7 @@ public final class GiantSpider extends Monster {
      */
     @Override
     public void specialPowers() {
-        System.out.println("Giant Spider " + getName() + " activates " + getSpecialPower() +
-                " and fires sticky silk. (webCount=" + webCount + ")");
+        System.out.println("Giant Spider " + getName() + " uses " + getSpecialPower() +
+                " and shoots its webs. (Web Count = " + webCount + ")");
     }
 }

@@ -1,57 +1,57 @@
 package monsters;
 
-import java.util.Date;
+/**
 
-/** Project: Lab 2 Monsters
- * Purpose Details: Concrete sealed child class representing a monsters.Gargoyle.
- * Course:
- * Author:
- * Date Developed:
- * Last Date Changed:
+ * Project: Lab 2
+ * Purpose Details: Monsters
+ * Course: IST 242
+ * Author: Matthew Sulpizio
+ * Date Developed: 1/27/26
+ * Last Date Changed: 2/8/26
  * Rev:
+
  */
+
 public final class Gargoyle extends Monster {
 
-    /** Whether the gargoyle can fly. */
-    private boolean canFly;
+    /** Flight stamina for how long the gargoyle can fly for */
+    private int flightStamina;
 
     /**
      * Constructs a monsters.Gargoyle.
      *
-     * @param id Unique monster id
      * @param name Monster name
      * @param level Monster level
      * @param health Monster health
-     * @param createdDate Date created
-     * @param canFly true if gargoyle can fly
+     * @param flightStamina flight stamina
      */
-    public Gargoyle(String id, String name, int level, int health, Date createdDate, boolean canFly) {
-        super(id, name, level, health, createdDate);
-        this.canFly = canFly;
+    public Gargoyle(String name, int level, int health, int flightStamina) {
+        super(name, level, health);
+        this.flightStamina = flightStamina;
     }
 
     /**
-     * Gets whether the gargoyle can fly.
-     * @return canFly
+     * Gets flight stamina.
+     * @return flightStamina
      */
-    public boolean isCanFly() {
-        return canFly;
+    public int getFlightStamina() {
+        return flightStamina;
     }
 
     /**
-     * Sets whether the gargoyle can fly.
-     * @param canFly canFly
+     * Sets flight stamina.
+     * @param flightStamina flightStamina
      */
-    public void setCanFly(boolean canFly) {
-        this.canFly = canFly;
+    public void setFlightStamina(int flightStamina) {
+        this.flightStamina = flightStamina;
     }
 
     /**
-     * Prints the special power behavior for a monsters.Gargoyle.
+     * Prints the special power behavior for a Gargoyle.
      */
     @Override
     public void specialPowers() {
-        System.out.println("monsters.Gargoyle " + getName() + " uses " + getSpecialPower() +
-                " while perched on a rooftop. (canFly=" + canFly + ")");
+        System.out.println("Gargoyle " + getName() + " uses " + getSpecialPower() +
+                " while flying through the air. (Flight Stamina = " + flightStamina + ")");
     }
 }

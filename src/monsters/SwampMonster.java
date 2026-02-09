@@ -1,49 +1,49 @@
 package monsters;
 
-import java.util.Date;
+/**
 
-/** Project: Lab 2 Monsters
- * Purpose Details: Concrete sealed child class representing a Swamp Monster.
- * Course:
- * Author:
- * Date Developed:
- * Last Date Changed:
+ * Project: Lab 2
+ * Purpose Details: Monsters
+ * Course: IST 242
+ * Author: Matthew Sulpizio
+ * Date Developed: 1/27/26
+ * Last Date Changed: 2/8/26
  * Rev:
+
  */
+
 public final class SwampMonster extends Monster {
 
-    /** Swamp thickness level where it lives (higher = murkier). */
-    private int swampMurkLevel;
+    /** Armor durability of scales). */
+    private int scaleArmorLevel;
 
     /**
      * Constructs a SwampMonster.
      *
-     * @param id Unique monster id
      * @param name Monster name
      * @param level Monster level
      * @param health Monster health
-     * @param createdDate Date created
-     * @param swampMurkLevel murk level
+     * @param scaleArmorLevel scale armor level
      */
-    public SwampMonster(String id, String name, int level, int health, Date createdDate, int swampMurkLevel) {
-        super(id, name, level, health, createdDate);
-        this.swampMurkLevel = swampMurkLevel;
+    public SwampMonster(String name, int level, int health, int scaleArmorLevel) {
+        super(name, level, health);
+        this.scaleArmorLevel = scaleArmorLevel;
     }
 
     /**
-     * Gets swamp murk level.
-     * @return swampMurkLevel
+     * Gets scale armor level.
+     * @return scaleArmorLevel scale armor level
      */
-    public int getSwampMurkLevel() {
-        return swampMurkLevel;
+    public int getScaleArmorLevel() {
+        return scaleArmorLevel;
     }
 
     /**
-     * Sets swamp murk level.
-     * @param swampMurkLevel swamp murk level
+     * Sets scale armor level.
+     * @param scaleArmorLevel scale armor level
      */
-    public void setSwampMurkLevel(int swampMurkLevel) {
-        this.swampMurkLevel = swampMurkLevel;
+    public void setScaleArmorLevel(int scaleArmorLevel) {
+        this.scaleArmorLevel = scaleArmorLevel;
     }
 
     /**
@@ -51,7 +51,7 @@ public final class SwampMonster extends Monster {
      */
     @Override
     public void specialPowers() {
-        System.out.println("Swamp Monster " + getName() + " unleashes " + getSpecialPower() +
-                " from the murky waters. (murkLevel=" + swampMurkLevel + ")");
+        System.out.println("Swamp Monster " + getName() + " uses " + getSpecialPower() +
+                " from the swamp waters. (Armor Scale Level = " + scaleArmorLevel + ")");
     }
 }

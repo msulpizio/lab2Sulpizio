@@ -1,16 +1,27 @@
 package monsters;
 
-import java.util.Date;
+/**
 
-/** Project: Lab 2 Monsters
- * Purpose Details: Creates monster objects, sets special powers, and prints characteristics.
- * Course:
- * Author:
- * Date Developed:
- * Last Date Changed:
+ * Project: Lab 2
+ * Purpose Details: Monsters
+ * Course: IST 242
+ * Author: Matthew Sulpizio
+ * Date Developed: 1/27/26
+ * Last Date Changed: 2/8/26
  * Rev:
+
+ */
+
+/**
+ * Driver class for the Monsters Lab.
  */
 public class Main {
+
+    /**
+     * Constructs the Main driver class.
+     */
+    public Main() {
+    }
 
     /**
      * Program entry point.
@@ -19,35 +30,35 @@ public class Main {
     public static void main(String[] args) {
 
         // 2 Swamp Monsters
-        Monster swamp1 = new SwampMonster("SM-001", "Mireclaw", 5, 120, new Date(), 8);
-        Monster swamp2 = new SwampMonster("SM-002", "Bogmaw", 7, 150, new Date(), 10);
+        Monster swamp1 = new SwampMonster("Slimy", 5, 120, 8);
+        Monster swamp2 = new SwampMonster("Gilly", 7, 150, 10);
 
         // 2 Giant Spiders
-        Monster spider1 = new GiantSpider("GS-001", "Silkfang", 4, 90, new Date(), 12);
-        Monster spider2 = new GiantSpider("GS-002", "Webreaper", 6, 110, new Date(), 20);
+        Monster spider1 = new GiantSpider("Silky", 4, 90, 12);
+        Monster spider2 = new GiantSpider("Fangs", 6, 110, 20);
 
         // 1 monsters.Gargoyle
-        Monster gargoyle1 = new Gargoyle("GA-001", "Nightstone", 8, 180, new Date(), true);
+        Monster gargoyle1 = new Gargoyle("Greg", 8, 180, 25);
 
         // Set special powers using setters (all 5)
-        swamp1.setSpecialPower(MonsterPower.REGENERATION);
+        swamp1.setSpecialPower(MonsterPower.SLIME_SPLASH);
         swamp2.setSpecialPower(MonsterPower.ACID_SPIT);
 
         spider1.setSpecialPower(MonsterPower.WEB_TRAP);
         spider2.setSpecialPower(MonsterPower.POISON_BITE);
 
-        gargoyle1.setSpecialPower(MonsterPower.STONE_GAZE);
+        gargoyle1.setSpecialPower(MonsterPower.WIND_THRUST);
 
         // Print full characteristics of all 5 monsters using getter methods
-        System.out.println("=== MONSTER CHARACTERISTICS ===");
+        System.out.println("CHARACTERISTICS:");
         printMonsterDetails(swamp1);
         printMonsterDetails(swamp2);
         printMonsterDetails(spider1);
         printMonsterDetails(spider2);
         printMonsterDetails(gargoyle1);
 
-        // Print special powers using getter + polymorphism (specialPowers implemented in each concrete class)
-        System.out.println("\n=== MONSTER SPECIAL POWERS (Getter + Polymorphism) ===");
+        // Print special powers using getter + polymorphism
+        System.out.println("\nSPECIAL POWERS:");
         printPower(swamp1);
         swamp1.specialPowers();
 
@@ -69,22 +80,19 @@ public class Main {
      * @param monster monster object
      */
     private static void printMonsterDetails(Monster monster) {
-        System.out.println("------------------------------------");
         System.out.println("Type: " + monster.getClass().getSimpleName());
-        System.out.println("ID: " + monster.getId());
         System.out.println("Name: " + monster.getName());
         System.out.println("Level: " + monster.getLevel());
         System.out.println("Health: " + monster.getHealth());
-        System.out.println("Created Date: " + monster.getCreatedDate());
         System.out.println("Special Power: " + monster.getSpecialPower());
 
-        // Print child-specific fields (still using getters)
+        // Print child-specific fields
         if (monster instanceof SwampMonster sm) {
-            System.out.println("Swamp Murk Level: " + sm.getSwampMurkLevel());
+            System.out.println("Scale Armor Level: " + sm.getScaleArmorLevel());
         } else if (monster instanceof GiantSpider gs) {
             System.out.println("Web Count: " + gs.getWebCount());
         } else if (monster instanceof Gargoyle g) {
-            System.out.println("Can Fly: " + g.isCanFly());
+            System.out.println("Flight Stamina: " + g.getFlightStamina());
         }
     }
 
@@ -93,6 +101,6 @@ public class Main {
      * @param monster monster object
      */
     private static void printPower(Monster monster) {
-        System.out.println(monster.getName() + " special power is: " + monster.getSpecialPower());
+        System.out.println(monster.getName() + "'s special power: " + monster.getSpecialPower());
     }
 }
