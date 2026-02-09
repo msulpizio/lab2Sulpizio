@@ -37,10 +37,10 @@ public class Main {
         Monster spider1 = new GiantSpider("Silky", 4, 90, 12);
         Monster spider2 = new GiantSpider("Fangs", 6, 110, 20);
 
-        // 1 monsters.Gargoyle
+        // 1 Gargoyle
         Monster gargoyle1 = new Gargoyle("Greg", 8, 180, 25);
 
-        // Set special powers using setters (all 5)
+        // Set special powers
         swamp1.setSpecialPower(MonsterPower.SLIME_SPLASH);
         swamp2.setSpecialPower(MonsterPower.ACID_SPIT);
 
@@ -49,7 +49,7 @@ public class Main {
 
         gargoyle1.setSpecialPower(MonsterPower.WIND_THRUST);
 
-        // Print full characteristics of all 5 monsters using getter methods
+        // Print full characteristics of all 5 monsters
         System.out.println("CHARACTERISTICS:");
         printMonsterDetails(swamp1);
         printMonsterDetails(swamp2);
@@ -57,7 +57,7 @@ public class Main {
         printMonsterDetails(spider2);
         printMonsterDetails(gargoyle1);
 
-        // Print special powers using getter + polymorphism
+        // Print special powers
         System.out.println("\nSPECIAL POWERS:");
         printPower(swamp1);
         swamp1.specialPowers();
